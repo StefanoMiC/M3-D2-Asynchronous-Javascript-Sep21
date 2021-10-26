@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Playground</h1>
+
+
+    <script>
+        const answer = function (string) {
+            alert("📞 " + string)
+        }
+
+        function callFriend() {
+
+            const randomTime = Math.floor(Math.random() * 3000)
+
+            setTimeout(function () {
+                answer("Hello, Stefano?")
+                console.log(randomTime)
+            }, randomTime)
+
+            console.log("phone is ringing... ☎")
+        }
+
+
+        const rollTheDicePromise = () =>
+            new Promise((resolve, reject) => {
+                const randTime = Math.floor(Math.random() * 3000)
+                setTimeout(() => {
+                    const randomNumber = Math.floor(Math.random() * 10)
+                    if (randomNumber < 7) {
+                        resolve("We've got a winner! And the number is " + randomNumber)
+                    } else {
+                        reject("You lose. The number " + randomNumber + " is too high!")
+                    }
+                }, randTime)
+            })
+
+        rollTheDicePromise()
+            .then(successMessage => alert(successMessage))
+            .catch(errorMessage => console.log(errorMessage))
+
+    </script>
+</body>
+
+</html>
